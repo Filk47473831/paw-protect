@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+        <title>Paw Protect</title>
+    </head>
+    <style>
+      #dragger {
+        width:100%;
+        height:20px;
+        background-color:transparent;
+      }
+      .draggable {
+         -webkit-app-region: drag;
+      }
+      #cat {
+        cursor:pointer;
+        user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+      }
+    </style>
+    <body>
+        <div id="dragger" class="draggable"></div>
+        <div id="catFrame">
+          <img id="cat" ondragstart="return false;" ondrop="return false;" src="cat.png" width="100%"/>
+        </div>
+        <script src="howler.js"></script>
+        <script>
+            const { ipcRenderer } = require( 'electron' )
+            document.getElementById("cat").addEventListener("click", function(){
+              ipcRenderer.send('fullscreen')
+            })
+        </script>
+    </body>
+</html>

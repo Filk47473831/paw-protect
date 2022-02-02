@@ -1,0 +1,25 @@
+{
+  "name": "paw-protect",
+  "version": "1.0.0",
+  "description": "eSafety Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/Filk47473831/paw-protect.git",
+  "keywords": [
+    "esafety",
+    "education",
+    "schools",
+    "protect"
+  ],
+  "author": "Chris Groves",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^16.0.8"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.15",
+    "sound-play": "^1.1.0"
+  }
+}

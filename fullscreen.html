@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+        <title>Paw Protect</title>
+    </head>
+    <body style="background-color: black;">
+        <div style="text-align:center;margin-top:40px">
+            <button id="btn" type="button">Go back</button>
+        </div>
+        <div style="text-align: center;">
+            <img id="cat" ondragstart="return false;" ondrop="return false;" src="cat.png" height="75%"/>
+        </div>
+        <script>
+            const { ipcRenderer } = require( 'electron' );
+            document.getElementById("btn").addEventListener("click", function(){
+            ipcRenderer.send('restore')
+            })
+        </script>
+    </body>
+</html>
