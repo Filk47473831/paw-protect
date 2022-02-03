@@ -6,13 +6,18 @@
         <title>Paw Protect</title>
     </head>
     <body style="background-color: black;">
-        <div style="text-align:center;margin-top:40px">
-            <button id="btn" type="button">Get an adult to help you before clicking here!</button>
-        </div>
-        <div style="text-align: center;">
-            <img id="cat" ondragstart="return false;" ondrop="return false;" src="cat.png" height="75%"/>
+        <div hidden id="content">
+            <div style="text-align:center;margin-top:40px">
+                <button id="btn" type="button">Get an adult to help you before clicking here!</button>
+            </div>
+            <div style="text-align: center;">
+                <img id="cat" ondragstart="return false;" ondrop="return false;" src="cat.png" height="75%"/>
+            </div>
         </div>
         <script>
+            setTimeout(function(){
+                document.getElementById("content").removeAttribute("hidden")
+            },100)
             const { ipcRenderer } = require( 'electron' );
             document.getElementById("btn").addEventListener("click", function(){
             ipcRenderer.send('restore')
