@@ -30,6 +30,12 @@
         </div>
         <script src="howler.js"></script>
         <script>
+			document.getElementById("cat").addEventListener("mouseover", function(){
+				document.getElementById("cat").src = "cat_o.png"
+			})
+			document.getElementById("cat").addEventListener("mouseout", function(){
+				document.getElementById("cat").src = "cat.png"
+			})
             const { ipcRenderer } = require( 'electron' )
             document.getElementById("cat").addEventListener("click", function(){
               document.getElementById("cat").setAttribute("hidden", "hidden")
