@@ -6,6 +6,19 @@
   "scripts": {
     "start": "electron ."
   },
+  "build": {
+    "appId": "paw-protect",
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "fullscreen.html",
+      "tray.png",
+      "cat.png",
+      "cat-o.png",
+      "cat.mp3"
+    ]
+  },
   "repository": "https://github.com/Filk47473831/paw-protect.git",
   "keywords": [
     "esafety",
