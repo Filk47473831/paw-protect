@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+        <title>Paw Protect</title>
+    </head>
+    <style>
+        body {
+            background-color: #9f1ae2;
+        }
+        #btnDiv {
+            text-align:center;
+            margin-top:40px;
+            margin-bottom:100px;
+        }
+        #btn {
+            cursor:pointer;
+            padding:10px;
+            background-color:aliceblue;
+            border-radius:18px;
+            font-size:1.8rem;
+        }
+        #btn:hover {
+            background-color:rgb(159, 206, 247);
+        }
+        #catDiv {
+            text-align: center;
+        }
+        #cat {
+            position: absolute;
+            left: 33%;
+            height: 75%;
+        }
+        #catBlink {
+            position: absolute;
+            z-index: 999;
+            left: 33%;
+            height: 75%;
+        }
+    </style>
+    <body>
+        <div hidden id="content">
+            <div id="btnDiv">
+                <button id="btn" type="button">Get an adult to help you before clicking here!</button>
+            </div>
+            <div id="catDiv">
+                <img id="cat" ondragstart="return false;" ondrop="return false;" src="cat.png"/>
+                <img id="catBlink" ondragstart="return false;" ondrop="return false;" src="cat_o.png"/>
+            </div>
+        </div>
+        <script>
+            setTimeout(function(){
+                document.getElementById("content").removeAttribute("hidden")
+            },100)
+            const { ipcRenderer } = require( 'electron' );
+            document.getElementById("btn").addEventListener("click", function(){
+            ipcRenderer.send('restore')
+            })
+            setInterval(function(){
+                document.getElementById("cat").removeAttribute("hidden")
+                document.getElementById("catBlink").setAttribute("hidden","hidden")
+                setTimeout(function(){
+                    document.getElementById("catBlink").removeAttribute("hidden")
+                    document.getElementById("cat").setAttribute("hidden","hidden")
+                },100)
+            },5000)
+        </script>
+    </body>
+</html>
