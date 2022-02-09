@@ -3,6 +3,7 @@ const path = require('path')
 let mainWindow
 const sound = require('sound-play')
 const catSound = path.join(__dirname, "assets/cat.mp3")
+const forestSound = path.join(__dirname, "assets/forest.mp3")
 
 function createWindow () {
   mainWindow = new BrowserWindow({
@@ -57,6 +58,7 @@ ipcMain.on('fullscreen', function () {
   mainWindow.loadFile('assets/fullscreen.html').then(function(){
     mainWindow.setFullScreen(true)
     sound.play(catSound)
+    sound.play(forestSound)
   })
 })
 
