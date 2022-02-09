@@ -39,7 +39,7 @@
 			})
             const { ipcRenderer } = require( 'electron' )
             document.getElementById("cat").addEventListener("click", function(){
-              document.getElementById("cat").setAttribute("hidden", "hidden")
+              // document.getElementById("cat").setAttribute("hidden", "hidden")
               ipcRenderer.send('fullscreen')
             })
         </script>
