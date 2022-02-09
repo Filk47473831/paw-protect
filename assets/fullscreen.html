@@ -69,9 +69,15 @@
             </div>
         </div>
         <script>
+            var catSound = new Audio("cat.mp3")
+            var forestSound = new Audio("forest.mp3")
             setTimeout(function(){
                 document.getElementById("content").removeAttribute("hidden")
+                forestSound.play()
             },100)
+            setTimeout(function(){
+                catSound.play()
+            },750)
             const { ipcRenderer } = require( 'electron' );
             document.getElementById("btn").addEventListener("click", function(){
             ipcRenderer.send('restore')
