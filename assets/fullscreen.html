@@ -31,13 +31,24 @@
         #btn:hover {
             background-color:rgb(159, 206, 247);
         }
+        #bird {
+            position: absolute;
+            left: 5%;
+            top: 9%;
+            height: 5%;
+			user-select: none;
+			-moz-user-select: none;
+			-khtml-user-select: none;
+			-webkit-user-select: none;
+			-o-user-select: none;
+        }
         #catDiv {
             text-align: center;
         }
         #cat {
             position: absolute;
             right: 23%;
-            bottom: 8%;
+            bottom: 6%;
             height: 20%;
 			user-select: none;
 			-moz-user-select: none;
@@ -49,7 +60,7 @@
             position: absolute;
             z-index: 999;
             right: 23%;
-            bottom: 8%;
+            bottom: 6%;
             height: 20%;
 			user-select: none;
 			-moz-user-select: none;
@@ -60,6 +71,9 @@
     </style>
     <body>
         <div hidden id="content">
+            <div id="birdDiv">
+                <img id="bird" ondragstart="return false;" ondrop="return false;" src="bird1.png"/>
+            </div>
             <div id="btnDiv">
                 <button id="btn" type="button">Get an adult to help you before clicking here!</button>
             </div>
@@ -69,6 +83,7 @@
             </div>
         </div>
         <script>
+            var current = 0
             var catSound = new Audio("cat.mp3")
             var forestSound = new Audio("forest.mp3")
             setTimeout(function(){
@@ -90,6 +105,11 @@
                     document.getElementById("cat").setAttribute("hidden","hidden")
                 },100)
             },5000)
+            setInterval(function(){
+                current = current + 1
+                if(current > 95) { current = 0 }
+                document.getElementById("bird").setAttribute("style", "left: " + current + "%")
+            },50)
         </script>
     </body>
 </html>
