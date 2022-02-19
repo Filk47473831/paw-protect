@@ -10,6 +10,7 @@
             background: url(background.jpg);
             background-repeat: no-repeat;
             background-size: cover;
+            overflow: hidden;
         }
         #btnDiv {
             text-align:center;
@@ -33,8 +34,8 @@
         }
         #bird {
             position: absolute;
-            left: 5%;
-            top: 9%;
+            left: -40px;
+            top: 120px;
             height: 5%;
 			user-select: none;
 			-moz-user-select: none;
@@ -84,6 +85,7 @@
         </div>
         <script>
             var current = 0
+            var birdImg = 1
             var catSound = new Audio("cat.mp3")
             var forestSound = new Audio("forest.mp3")
             setTimeout(function(){
@@ -107,9 +109,14 @@
             },5000)
             setInterval(function(){
                 current = current + 1
-                if(current > 95) { current = 0 }
-                document.getElementById("bird").setAttribute("style", "left: " + current + "%")
-            },50)
+                if(current > 4000) { current = -50 }
+                document.getElementById("bird").setAttribute("style", "left: " + current + "px")
+            },2)
+            setInterval(function(){
+                birdImg = birdImg + 1
+                if(birdImg > 4) { birdImg = 1 }
+                document.getElementById("bird").setAttribute("src", "bird" + birdImg + ".png")
+            },200)
         </script>
     </body>
 </html>
